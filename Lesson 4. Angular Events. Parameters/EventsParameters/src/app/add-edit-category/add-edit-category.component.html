@@ -1,0 +1,17 @@
+<form (submit)="submit()" [formGroup]="form">
+    <div>
+        <mat-form-field appearance="fill" class="bg-danger text-white">
+            <mat-label>Name :</mat-label>
+            <input formControlName="name" matInput>
+        </mat-form-field><br>
+    </div>
+    <button [disabled]="!form.valid" mat-raised-button type="submit" color="accent">
+        <span #buttonContent>
+           <ng-content select="[buttonContent]"></ng-content> 
+        </span>
+        <div *ngIf="!buttonContent.innerHTML.trim()">
+            Save
+        </div>
+    </button>
+    <a routerLink="/categories" mat-raised-button>Back</a>
+</form>

@@ -1,0 +1,40 @@
+<h1 class="text-danger m-2">Create New Purchase</h1>
+
+<form (submit)="submit()" [formGroup]="form">
+    <div class="d-block">
+        <mat-form-field appearance="fill" class="bg-danger">
+            <mat-label>Number :</mat-label>
+            <input formControlName="number" matInput>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill" class="bg-danger">
+            <mat-label>Description :</mat-label>
+            <input formControlName="description" matInput>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill" class="bg-danger">
+            <mat-label>Price :</mat-label>
+            <input formControlName="price" matInput>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill" class="bg-danger">
+            <mat-label>Date :</mat-label>
+            <input formControlName="date" type="date" matInput>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill" class="bg-danger">
+            <mat-label>Sale Percent :</mat-label>
+            <input formControlName="salePercent" matInput>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill" class="bg-danger">
+            <mat-label>Purchase Status :</mat-label>
+            <input formControlName="purchaseStatus" matInput>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill" class="bg-danger">
+            <mat-label>Buyer Name :</mat-label>
+            <input formControlName="buyerName" matInput>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill"class="bg-danger">
+            <mat-label>Buyer Surname :</mat-label>
+            <input formControlName="buyerSurname" matInput>
+        </mat-form-field><br>
+    </div>
+    <button [disabled]="!form.valid" class="m-3" mat-raised-button type="submit" color="accent">Save</button>
+    <a class="m-3" routerLink="/purchases" mat-raised-button>Back</a>
+</form> 

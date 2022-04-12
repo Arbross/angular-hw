@@ -1,0 +1,21 @@
+<div class="container">
+    <div *ngIf="!categories" class="loading">
+        <img  src="https://wpamelia.com/wp-content/uploads/2018/11/ezgif-2-6d0b072c3d3f.gif" alt="Loading">
+    </div>
+
+    <p *ngIf="!categories?.length" class="d-flex align-center text-danger">There is no purchases here yet!</p>
+
+    <div class="m-2">
+      <button *ngIf="categories?.length" class="btn btn-primary" routerLink="add" mat-raised-button color="accent">Add New</button>
+    </div>
+
+    <div class="d-block">
+      <div *ngFor="let category of categories let i = index" class="stilizePurchase d-flex justify-content-between">
+        <div><span>Category: </span>{{category.name}}</div>
+        <div>
+          <button class="btn btn-primary m-1" mat-raised-button color="accent" (click)="removeCategory(i)">Delete</button>
+          <button class="btn btn-primary" [routerLink]="['/categories/edit/', category.id]" mat-raised-button color="accent">Edit</button>
+        </div>
+      </div>
+    </div>
+</div>

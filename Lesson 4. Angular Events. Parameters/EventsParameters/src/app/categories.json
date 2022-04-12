@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Blues"
+  },
+  {
+    "id": 2,
+    "name": "Classic Rock"
+  },
+  {
+    "id": 3,
+    "name": "Country"
+  },
+  {
+    "id": 4,
+    "name": "Dance"
+  },
+  {
+    "id": 5,
+    "name": "Disco"
+  }
+]

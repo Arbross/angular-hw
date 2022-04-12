@@ -1,0 +1,25 @@
+<div class="container">
+    <h1 class="text-center text-red">Purchase List</h1>
+
+    <div *ngIf="!purchases" class="loading">
+        <img  src="https://wpamelia.com/wp-content/uploads/2018/11/ezgif-2-6d0b072c3d3f.gif" alt="Loading">
+    </div>
+
+    <p *ngIf="!purchases?.length" class="d-flex align-center text-red">There is no purchases here yet!</p>
+
+    <div class="d-flex align-center">
+      <div *ngFor="let purchase of purchases" class="stilizePurchase">
+        <h2>Card {{purchase.number}}</h2>
+        <div><span>Date: </span>{{purchase.date | date:'shortTime'}}</div>
+        <div><span>Price: </span>{{purchase.price | number}}$</div>
+        <div><span>Sale Percent: </span>{{purchase.salePercent | number}}%</div>
+        <div><span>Buyer Name: </span>{{purchase.buyerName | uppercase}}</div>
+        <div><span>Buyer Surname: </span>{{purchase.buyerSurname | uppercase}}</div>
+        <div [ngSwitch]="purchase.purchaseStatus">
+          <p *ngSwitchCase="'Proccesing'"><span>Status: </span><span class="text-yellow">{{purchase.purchaseStatus | uppercase}}</span></p>
+          <p *ngSwitchCase="'Canceled'"><span>Status: </span><span class="text-red">{{purchase.purchaseStatus | uppercase}}</span></p>
+          <p *ngSwitchCase="'Closed'"><span>Status: </span><span class="text-green">{{purchase.purchaseStatus | uppercase}}</span></p>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+[
+    {
+        "number": 1,
+        "description": "qwewqeqwe",
+        "price": 300,
+        "date": null,
+        "salePercent": 50,
+        "purchaseStatus": "Closed",
+        "buyerName": "qweqwe",
+        "buyerSurname": "qweqwew"
+    }
+]

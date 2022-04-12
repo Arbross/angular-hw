@@ -1,0 +1,41 @@
+.d-flex {
+    display: flex;
+}
+
+.text-center {
+    text-align: center;
+    display: block;
+}
+
+.text-yellow {
+    color: rgb(255, 255, 119);
+}
+
+.text-green {
+    color: rgb(115, 253, 115);
+}
+
+.text-red {
+    color: rgb(253, 63, 63);
+}
+
+.align-center {
+    align-items: center;
+    justify-content: center;
+}
+
+.stilizePurchase {
+    background-color: rgb(165, 45, 45);
+    padding: 20px;
+    margin: 10px;
+    color: white;
+    border-radius: 15px;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+.loading img {
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

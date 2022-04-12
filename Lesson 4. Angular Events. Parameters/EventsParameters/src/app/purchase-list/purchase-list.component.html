@@ -1,0 +1,31 @@
+<div class="container">
+    <div *ngIf="!purchases" class="loading">
+        <img  src="https://wpamelia.com/wp-content/uploads/2018/11/ezgif-2-6d0b072c3d3f.gif" alt="Loading">
+    </div>
+
+    <p *ngIf="!purchases?.length" class="d-flex align-center text-danger">There is no purchases here yet!</p>
+
+    <div class="m-2">
+      <button *ngIf="purchases?.length" class="btn btn-primary" routerLink="add" mat-raised-button color="accent">Add New</button>
+    </div>
+
+    <div class="d-inline-flex flex-wrap">
+      <div *ngFor="let purchase of purchases let i = index" class="stilizePurchase" [ngClass]="{'stilizePurchaseClosed': purchase.purchaseStatus == 'Closed', 'stilizePurchaseCanceled': purchase.purchaseStatus == 'Canceled', 'stilizePurchaseProccessing': purchase.purchaseStatus == 'Proccesing'}">
+        <h2>Card {{purchase.number}}</h2>
+        <div><span>Date: </span>{{purchase.date | date:'shortTime'}}</div>
+        <div><span>Price: </span>{{purchase.price | number}}$</div>
+        <div><span>Sale Percent: </span>{{purchase.salePercent | number}}%</div>
+        <div><span>Buyer Name: </span>{{purchase.buyerName | uppercase}}</div>
+        <div><span>Buyer Surname: </span>{{purchase.buyerSurname | uppercase}}</div>
+        <div [ngSwitch]="purchase.purchaseStatus">
+          <p *ngSwitchCase="'Proccesing'"><span>Status: </span><span class="text-warning">{{purchase.purchaseStatus | uppercase}}</span></p>
+          <p *ngSwitchCase="'Canceled'"><span>Status: </span><span class="text-danger">{{purchase.purchaseStatus | uppercase}}</span></p>
+          <p *ngSwitchCase="'Closed'"><span>Status: </span><span class="text-success">{{purchase.purchaseStatus | uppercase}}</span></p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-primary m-1" (click)="removePurchase(i)">Delete</button>
+          <button class="btn btn-primary m-1" (click)="changeStatusClosed(i)">Set Done</button>
+        </div>
+      </div>
+    </div>
+</div>
