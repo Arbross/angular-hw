@@ -1,0 +1,33 @@
+<div class="container">
+    <div *ngIf="!users" class="loading">
+        <img  src="https://wpamelia.com/wp-content/uploads/2018/11/ezgif-2-6d0b072c3d3f.gif" alt="Loading">
+    </div>
+
+    <p *ngIf="!users?.length" class="d-flex align-center text-danger">There is no users here yet!</p>
+
+    <app-auth-view>
+      <ng-container authenticated>
+        <div class="m-2">
+          <button *ngIf="users?.length" class="btn btn-primary" routerLink="add" mat-raised-button color="accent">Add New</button>
+        </div>
+      </ng-container>
+    </app-auth-view>
+
+    <div class="d-block">
+      <div *ngFor="let user of users let i = index" class="stilizePurchase d-flex justify-content-between">
+        <div>
+          <div><span>Code : </span>{{user.code}}</div><br>
+          <div><span>Username : </span>{{user.userName}}</div><br>
+          <div><span>Phone : </span>{{user.phoneNumber}}</div><br>
+          <div><span>First name : </span>{{user.firstName}}</div><br>
+          <div><span>Last name : </span>{{user.lastName}}</div><br>
+        </div>
+        <app-auth-view>
+          <ng-container authenticated>
+            <button class="btn btn-primary m-1" mat-raised-button color="accent" (click)="remove(user.id)">Delete</button>
+            <button class="btn btn-primary" [routerLink]="['/categories/edit/', user.id]" mat-raised-button color="accent">Edit</button>
+          </ng-container>
+        </app-auth-view>
+      </div>
+    </div>
+</div>

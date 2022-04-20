@@ -1,0 +1,37 @@
+<form (submit)="submit()" [formGroup]="form">
+    <div>
+        <mat-form-field appearance="fill" class="bg-danger text-white">
+            <mat-label>Code :</mat-label>
+            <input formControlName="code" matInput>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill" class="bg-danger text-white">
+            <mat-label>Username :</mat-label>
+            <input formControlName="userName" matInput>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill" class="bg-danger text-white">
+            <mat-label>First name :</mat-label>
+            <input formControlName="firstName" matInput>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill" class="bg-danger text-white">
+            <mat-label>Second name :</mat-label>
+            <input formControlName="secondName" matInput>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill" class="bg-danger text-white">
+            <mat-label>Phone :</mat-label>
+            <input formControlName="phoneNumber" matInput>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill" class="bg-danger text-white">
+            <mat-label>Banned :</mat-label>
+            <input formControlName="isBanned" matInput>
+        </mat-form-field><br>
+    </div>
+    <button [disabled]="!form.valid" mat-raised-button type="submit" color="accent">
+        <span #buttonContent>
+           <ng-content select="[buttonContent]"></ng-content> 
+        </span>
+        <div *ngIf="!buttonContent.innerHTML.trim()">
+            Save
+        </div>
+    </button>
+    <a routerLink="/users" mat-raised-button>Back</a>
+</form>

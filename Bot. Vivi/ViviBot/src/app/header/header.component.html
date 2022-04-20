@@ -1,0 +1,35 @@
+<header>
+    <mat-toolbar>
+        <mat-toolbar-row class="container">
+            <a routerLink="" mat-button>
+                <mat-icon class="menu-icon" aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+                Home
+            </a>
+            <a routerLink="/users" mat-button>
+                <mat-icon class="menu-icon" aria-hidden="false" aria-label="Example person icon">person</mat-icon>
+                Users
+            </a>
+
+            <span class="spacer"></span>
+
+            <app-auth-view>
+                <ng-container notAuthenticated>
+                    <a routerLink="/account/login" mat-button>
+                        <mat-icon class="menu-icon" aria-hidden="false" aria-label="Example login icon">login</mat-icon>
+                        Login
+                    </a>
+                    <a routerLink="/account/register" mat-button>
+                        <mat-icon class="menu-icon" aria-hidden="false" aria-label="Example person icon">person</mat-icon>
+                        Register
+                    </a>
+                </ng-container>
+                <ng-container authenticated>
+                    <a (click)="logout()" mat-button>
+                        <mat-icon class="menu-icon" aria-hidden="false" aria-label="Example logout icon">logout</mat-icon>
+                        Logout
+                    </a>
+                </ng-container>
+            </app-auth-view>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</header>
